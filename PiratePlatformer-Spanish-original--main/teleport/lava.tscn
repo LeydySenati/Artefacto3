@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmj4c5tm6o87m"]
+
+[ext_resource type="Script" path="res://teleport/lava.gd" id="1_3idsn"]
+[ext_resource type="Texture2D" uid="uid://dgufrfwsky68e" path="res://Rocky Roads/Deco/lava.png" id="1_4wscp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sryer"]
+size = Vector2(384, 21)
+
+[node name="lava" type="CharacterBody2D"]
+script = ExtResource("1_3idsn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4wscp")
+
+[node name="attackLava" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackLava"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_sryer")
+
+[connection signal="body_entered" from="attackLava" to="." method="_on_attack_lava_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1oibuikgcyx1"]
+
+[ext_resource type="Script" path="res://plataforma_que_se_mueve/Movimiento.gd" id="1_5x7fg"]
+[ext_resource type="Texture2D" uid="uid://ofc6c4cfchhq" path="res://Rocky Roads/Deco/log_wall.png" id="1_u5aea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp0ib"]
+size = Vector2(16.5, 45)
+
+[node name="Plataforma_que_se_mueve" type="AnimatableBody2D"]
+rotation = 1.5708
+script = ExtResource("1_5x7fg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0.25, 23.5)
+shape = SubResource("RectangleShape2D_lp0ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 22)
+texture = ExtResource("1_u5aea")

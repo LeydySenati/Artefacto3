@@ -74,12 +74,13 @@ func _unhandled_input(event):
 # Función de movimiento general del personaje
 func _move(delta):
 	# Cuando se presiona la tecla (flecha izquierda), movemos el personaje a la izquierda
-	if Input.is_action_pressed("izquierda"):
+	if Input.is_action_pressed("izquierda")or Input.is_action_pressed("mover_Izquierda"):
+		
 		character.velocity.x = -velocity
 		_current_movement = _movements.LEFT_WITH_SWORD	
 		turn_side = "left"
 	# Cuando se presiona la tecla (flecha derecha), movemos el personaje a la derecha
-	elif Input.is_action_pressed("derecha"):
+	elif Input.is_action_pressed("derecha")or Input.is_action_pressed("mover_derecha"):
 		character.velocity.x = velocity
 		_current_movement = _movements.RIGHT_WITH_SWORD
 		turn_side = "right"

@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2w24ngom7fqq"]
+
+[ext_resource type="Script" path="res://escorpion/escorpionscript.gd" id="1_axmus"]
+[ext_resource type="Texture2D" uid="uid://btqtg767x5wgm" path="res://escorpion/58739.png" id="1_qy1wb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1ij4"]
+atlas = ExtResource("1_qy1wb")
+region = Rect2(0, 0, 80, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xdnh"]
+atlas = ExtResource("1_qy1wb")
+region = Rect2(80, 0, 80, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oopg2"]
+atlas = ExtResource("1_qy1wb")
+region = Rect2(160, 0, 80, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8opw"]
+atlas = ExtResource("1_qy1wb")
+region = Rect2(240, 0, 80, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gayt1"]
+atlas = ExtResource("1_qy1wb")
+region = Rect2(320, 0, 80, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwvdu"]
+atlas = ExtResource("1_qy1wb")
+region = Rect2(400, 0, 80, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jdp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1ij4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xdnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oopg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8opw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gayt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwvdu")
+}],
+"loop": true,
+"name": &"rondando",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdgu4"]
+size = Vector2(67, 66)
+
+[node name="Escorpion" type="CharacterBody2D"]
+script = ExtResource("1_axmus")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2jdp7")
+animation = &"rondando"
+autoplay = "rondando"
+frame_progress = 0.322163
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShapArea" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-3.5, 2)
+shape = SubResource("RectangleShape2D_sdgu4")
